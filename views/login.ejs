@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Welcome to FCC! </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="google-signin-client_id" content="53979228114-qatghee03t3f8a5pc6ujtnojvn08eagm.apps.googleusercontent.com">
+	<meta name="google-signin-cookiepolicy" content="single_host_origin">
+	<meta name="google-signin-scope" content="profile email">
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyCufIc48jvfrtzuichCuQ1TkrfWaF_jzs8",
+		    authDomain: "fcc-hack.firebaseapp.com",
+		    databaseURL: "https://fcc-hack.firebaseio.com",
+		    projectId: "fcc-hack",
+		    storageBucket: "fcc-hack.appspot.com",
+		    messagingSenderId: "53979228114"
+		  };
+		  firebase.initializeApp(config);
+  	</script>
+
+	<style type="text/css">
+		body {
+			background-color: #424242;
+		}
+
+		#flask {
+			width: 50%;
+			position: absolute;
+			left: 25%;
+		}
+	</style>
+</head>
+
+<body ng-app="App">
+	<div id="particles-js"></div>
+	<div id="overlay">
+		<div class="container">
+			<div id="flask" style="margin-top: 100px;">
+				<center>
+					<div class="card medium grey lighten-3">
+						<div style="padding-top: 2px; padding-left: 20px; padding-right: 20px;">
+							<h2> Login </h2>
+
+							<form method="POST" action="/login">
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="email" type="text" class="validate" name="email">
+										<label for="email">Email</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="password" type="password" class="validate" name="password">
+										<label for="password">Password</label>
+									</div>
+								</div>
+
+								<br>
+
+								<div>
+									<button id="sign-in" class="waves-effect waves-light btn black" style="float: left;">Sign In</button>
+								</div>
+							</form>
+
+							<div ng-controller="google">
+								<button ng-click="onSignIn()" class="waves-effect waves-light btn black" style="float: right;"> Sign in using Google </button>
+							</div>
+
+							<form action="/register" method="POST">
+								<button class="waves-effect waves-light btn black" style="float: center;"> Register </button>
+							</form>
+						</div>
+					</div>
+				</center>
+			</div>
+		</div>
+
+</body>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+	<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+	<script src='https://threejs.org/examples/js/libs/stats.min.js'></script>
+
+	<script>
+		var provider = new firebase.auth.GoogleAuthProvider();
+		var app = angular.module("App", []);
+
+		app.controller("google", function($scope, $http) {
+			$scope.onSignIn = function() {
+				firebase.auth().signInWithPopup(provider).then(function(result) {
+						var token = result.credential.accessToken;
+					 	var user = JSON.stringify(result.user);
+						$http({
+							url: "/loginWithGoogle",
+							method: "POST",
+							data: { user: user }
+						}).success(function(response) {
+							var x = document.URL;
+							var url = x.substring(0, x.length - 6);
+							window.location.replace(url + response);
+						});
+					}).catch(function(error) {
+					 	var errorCode = error.code;
+					  	var errorMessage = error.message;
+					  	var email = error.email;
+					  	var credential = error.credential;
+				});
+			}
+		});
+	</script>
+
+	<script src="js/index.js"></script>
+</html>

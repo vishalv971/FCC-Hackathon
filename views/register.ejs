@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Events </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyCufIc48jvfrtzuichCuQ1TkrfWaF_jzs8",
+		    authDomain: "fcc-hack.firebaseapp.com",
+		    databaseURL: "https://fcc-hack.firebaseio.com",
+		    projectId: "fcc-hack",
+		    storageBucket: "fcc-hack.appspot.com",
+		    messagingSenderId: "53979228114"
+		  };
+		  firebase.initializeApp(config);
+  	</script>
+</head>
+
+<body>
+	<div id="particles-js"></div>
+	<div id="overlay">
+
+	<br><br><br>
+	<div class="container">
+		<div class="card large white">
+			<div style="padding-top: 2px; padding-left: 20px; padding-right: 20px;">
+				<center>
+					<h2 class="black-text"> Register </h2>
+                </center>
+
+				<form action="/login" method="POST">
+					<div class="row">
+						<div class="input-field col s12">
+							<input class="black-text" id="name" type="text" class="validate" name="name">
+							<label for="name">Name</label>
+						</div>
+					</div>
+
+                    <div class="row">
+						<div class="input-field col s12">
+							<input class="black-text" id="email" type="email" class="validate" name="email">
+							<label for="email">Email</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input class="black-text" id="password" type="password" class="validate" name="password">
+							<label for="password">Password</label>
+						</div>
+					</div>
+
+                    <div class="row">
+						<center><button id="register" onclick="registerNew()" class="waves-effect waves-light btn black ">Register</button></center>
+                    </div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</div>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+
+	<!-- particles.js lib (JavaScript CodePen settings): https://github.com/VincentGarreau/particles.js -->
+	<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+	<script src='https://threejs.org/examples/js/libs/stats.min.js'></script>
+
+    <script>
+
+        function registerNew() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                //window.location.href = "http://localhost:3000/login";
+            });
+        }
+
+    </script>
+
+	<script src="js/index.js"></script>
+</body>
+
+</html>

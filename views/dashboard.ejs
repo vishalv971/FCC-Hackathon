@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Dashboard </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style type="text/css">
+		body {
+			background-color: #eeeeee;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="particles-js"></div>
+	<div id="overlay">
+		<div class="navbar-fixed">
+			<nav class="black">
+				<div class="container">
+					<div class="nav-wrapper">
+						<a style="padding-left: 20px;" href="/home" class="brand-logo"><img src="img/glyph.png" height="30px"></a>
+						<ul id="nav-mobile" class="right hide-on-med-and-down">
+							<li><a href="/dashboard">Dashboard</a></li>
+							<li><a href="/events">Events</a></li>
+							<li><a href="/about">About</a></li>
+							<li><a href="/logout">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<div class="container" style="padding-top: 20px">
+			<div class="row">
+				<div class="col s3 m3">
+					<div class="card grey darken-3">
+						<div class="card-image" align="center">
+							<br>
+							<img src="https://media.exhibia.com/users/facebook_KieuPhong.jpg" style="height: 200px; width: 200px;">
+						</div>
+						<div class="card-content">
+							<p class="white-text"> Welcome to your Dashboard, Username!</p>
+						</div>
+						<div class="card-action">
+							<a href="#">Change Password</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col s6 m8">
+					<div class="card grey darken-3">
+						<div class="card-content">
+
+							<h4 class="white-text"> Public Profile </h4>
+
+							<hr>
+							<form>
+								<div style="padding-top: 15px">
+									<h7 class="white-text"><b> Name </b></h7>
+									<br>
+									<input class="white-text" type="text" name="name" style="width: 85%;" />
+								</div>
+
+								<div style="padding-top: 15px">
+									<h7 class="white-text"><b> Email </b></h7>
+									<br>
+									<input class="white-text" type="text" name="email" style="width: 65%;" />
+								</div>
+
+								<div style="padding-top: 15px">
+									<h7 class="white-text" style="padding-bottom: 5px;"><b> Bio </b></h7>
+									<br>
+									<textarea class="white-text" cols="50" data-input-max-length="160" name="bio" rows="20" style="width: 75%;">
+                                    </textarea>
+									</textarea>
+								</div>
+
+								<div style="padding-top: 15px">
+									<h7 class="white-text"><b> Location </b></h7>
+									<br>
+									<input class="white-text" type="text" name="location" style="width: 50%;" />
+								</div>
+
+							</form>
+
+						</div>
+
+						<div class="card-action">
+							<div style="padding-top: 5px; padding-bottom: 3px">
+								<button type="submit" class="btn btn primary"> Update Changes </button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+
+		<footer class="page-footer black">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">Free Code Camp Bengaluru</h5>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<h5 class="white-text">Links</h5>
+						<ul>
+							<li><a class="grey-text text-lighten-3" href="/home">Home</a></li>
+							<li><a class="grey-text text-lighten-3" href="/dashboard">Dashboard</a></li>
+							<li><a class="grey-text text-lighten-3" href="/about">About Us</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2018 FCC
+				</div>
+			</div>
+		</footer>
+
+	</div>
+	<!--</div>-->
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+
+	<script src="js/index.js"></script>
+
+
+</body>
+
+</html>

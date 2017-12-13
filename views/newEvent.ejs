@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Events </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div id="particles-js"></div>
+	<div id="overlay">
+
+	<div class="navbar-fixed">
+		<nav class="black">
+			<div class="container">
+				<div class="nav-wrapper">
+					<a style="padding-left: 20px;" href="/home" class="brand-logo"><img src="img/glyph.png" height="30px"></a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a href="/dashboard">Dashboard</a></li>
+						<li><a href="/events">Events</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<br><br><br>
+	<div class="container">
+		<div class="card medium white">
+			<div style="padding-top: 2px; padding-left: 20px; padding-right: 20px;">
+				<center>
+					<h2 class="black-text"> Add Event</h2></center>
+				<form action="/events" method="POST">
+					<div class="row">
+						<div class="input-field col s12">
+							<input class="white-text" id="name" type="text" class="validate" name="name">
+							<label for="name">Name of event</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input class="white-text" id="desc" type="text" class="validate" name="description">
+							<label for="desc">Description of event</label>
+						</div>
+					</div>
+					<br>
+					<div>
+						<center><button id="sign-in" class="waves-effect waves-light btn black">Add</button></center>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<br><br><br>
+	<footer class="page-footer black">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Free Code Camp Bengaluru</h5>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="/home">Home</a></li>
+						<li><a class="grey-text text-lighten-3" href="/dashboard">Dashboard</a></li>
+						<li><a class="grey-text text-lighten-3" href="/about">About Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2018 FCC
+			</div>
+		</div>
+	</footer>
+</div>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+
+	<!-- particles.js lib (JavaScript CodePen settings): https://github.com/VincentGarreau/particles.js -->
+	<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+	<script src='https://threejs.org/examples/js/libs/stats.min.js'></script>
+
+	<script src="js/index.js"></script>
+</body>
+
+</html>
